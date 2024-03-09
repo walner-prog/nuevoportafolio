@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const cors = require('cors');
 app.use(cors());
 
-const port = 3000;
+const port = 3001;
 
 // Middleware para parsear JSON
 app.use(express.json());
