@@ -31,7 +31,39 @@
     <link rel="icon" href="images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
-    
+    <style>
+          /* Estilos de Texto */
+          h1,
+        h2,
+        h3 {
+            color: #007bff;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
    <!-- Navegación -->
    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <div class="container">
@@ -89,8 +121,8 @@
 <header id="header" class="header" id="header">
     <div class="container">
         <div class="row">
-            <div class="col-xl-10 offset-xl-1">
-              
+            <div class="col-xl-10 offset-xl-1 text-white" >
+                <h1 class=" text-white">Documentación de la API de Productos</h1>
             </div> <!-- fin de col -->
         </div> <!-- fin de row -->
     </div> <!-- fin de container -->
@@ -114,183 +146,78 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-10 offset-xl-1">
-                <h1>Aprende HTML Básico</h1>
-                <img src="images/details-icon-html.png" alt="alternative">
-                <h2>1. Introducción</h2>
-                <p>HTML (Lenguaje de Marcado de Hipertexto) es el lenguaje estándar para crear páginas web.
-                    Se utiliza para estructurar el contenido de una página web mediante el uso de etiquetas que definen la función y presentación de diversos elementos, como textos, imágenes, enlaces y más. HTML proporciona la base estructural de una página, mientras que otros lenguajes como CSS y JavaScript se utilizan para estilos y comportamientos interactivos. Aquí tienes una estructura básica de un documento HTML:</p>
+              
+               
+                <p>Bienvenido a la documentación de la API de productos. Esta API proporciona información sobre diversos productos, categorías y funciones de filtrado.</p>
+
+                <h2>¿Qué es una API?</h2>
             
-                <pre>
-                    <code>
-                        &lt;!DOCTYPE html&gt;
-                        &lt;html lang="es"&gt;
-                        &lt;head&gt;
-                            &lt;meta charset="UTF-8"&gt;
-                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                            &lt;title&gt;Mi primera página&lt;/title&gt;
-                        &lt;/head&gt;
-                        &lt;body&gt;
-                            &lt;h1&gt;Hola, mundo!&lt;/h1&gt;
-                            &lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;
-                        &lt;/body&gt;
-                        &lt;/html&gt;
-                    </code>
-                </pre>
+                <p>Una API (Interfaz de Programación de Aplicaciones) permite la comunicación entre diferentes software. En este caso, la API de productos te permite acceder y manipular datos relacionados con productos a través de solicitudes HTTP.</p>
             
-                <h2>2. Etiquetas Básicas</h2>
-                <p>HTML utiliza etiquetas para estructurar el contenido. Algunas etiquetas básicas incluyen:</p>
+                <h2>API de Productos</h2>
             
-                <ul>
-                    <li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>: Encabezados</li>
-                    <li><code>&lt;p&gt;</code>: Párrafos</li>
-                    <li><code>&lt;a&gt;</code>: Enlaces</li>
-                    <li><code>&lt;img&gt;</code>: Imágenes</li>
-                    <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: Listas</li>
-                    <li><code>&lt;div&gt;</code>: Contenedor genérico</li>
-                </ul>
+                <p>La API de productos ofrece varias rutas para acceder a la información. A continuación, se detallan los endpoints disponibles:</p>
             
-                <h2>3. Atributos</h2>
-                <p>Las etiquetas pueden tener atributos que proporcionan información adicional. Por ejemplo, el atributo <code>src</code> en la etiqueta <code>&lt;img&gt;</code>:</p>
+                <h3>1. Obtener todos los productos</h3>
+                <pre><code>GET /products</code></pre>
             
-                <pre>
-                    <code>
-                        &lt;img src="imagen.jpg" alt="Descripción de la imagen"&gt;
-                    </code>
-                </pre>
+                <h3>2. Obtener un producto por ID</h3>
+                <pre><code>GET /products/:id</code></pre>
             
-                <h2>4. Enlaces</h2>
-                <p>Crear enlaces es fundamental en HTML. Aquí tienes un ejemplo:</p>
+                <h3>3. Obtener productos por categoría</h3>
+                <pre><code>GET /products/category/:category</code></pre>
             
-                <pre>
-                    <code>
-                        &lt;a href="https://www.ejemplo.com"&gt;Visitar Ejemplo&lt;/a&gt;
-                    </code>
-                </pre>
+                <h3>4. Obtener un producto por ID dentro de una categoría</h3>
+                <pre><code>GET /products/category/:category/:id</code></pre>
             
-                <!-- Puedes agregar más temas y ejemplos según sea necesario -->
+                <h3>5. Filtrar productos por nombre</h3>
+                <pre><code>GET /products/filter/name?productName=pantalon</code></pre>
+            
+                <h3>6. Filtrar productos por precio</h3>
+                <pre><code>GET /products/filter/price?minPrice=20&maxPrice=50</code></pre>
+            
+                <h3>7. Obtener productos ordenados por precio</h3>
+                <pre><code>GET /products/sort/price</code></pre>
 
-<h2>5. Listas y Tablas</h2>
-<p>HTML te permite crear listas ordenadas, listas no ordenadas y tablas para organizar datos:</p>
+                <h2>Ejemplos de Solicitudes</h2>
 
-<pre>
-    <code>
-        &lt;ul&gt;
-            &lt;li&gt;Elemento 1&lt;/li&gt;
-            &lt;li&gt;Elemento 2&lt;/li&gt;
-            &lt;li&gt;Elemento 3&lt;/li&gt;
-        &lt;/ul&gt;
+                <p>A continuación, se presentan ejemplos de solicitudes HTTP utilizando cURL para cada endpoint:</p>
+            
+                <h3>1. Obtener todos los productos</h3>
+                <pre><code>GET /products</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products" target="_blank">https://apiproduct-nveo.onrender.com/products</a></code></pre>
+            
+                <h3>2. Obtener un producto por ID</h3>
+                <pre><code>GET /products/:id</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/15" target="_blank">https://apiproduct-nveo.onrender.com/products/15</a></code></pre>
+            
+                <h3>3. Obtener productos por categoría</h3>
+                <pre><code>GET /products/category/:category</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/category/ropa" target="_blank">https://apiproduct-nveo.onrender.com/products/category/ropa</a></code></pre>
+            
+                <h3>4. Obtener un producto por ID dentro de una categoría</h3>
+                <pre><code>GET /products/category/:category/:id</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/category/ropa/15" target="_blank">https://apiproduct-nveo.onrender.com/products/category/ropa/15</a></code></pre>
+            
+                <h3>5. Filtrar productos por nombre</h3>
+                <pre><code>GET /products/filter/name?productName=pantalon</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/filter/name?productName=pantalon" target="_blank">https://apiproduct-nveo.onrender.com/products/filter/name?productName=pantalon</a></code></pre>
+            
+                <h3>6. Filtrar productos por precio</h3>
+                <pre><code>GET /products/filter/price?minPrice=20&maxPrice=50</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/filter/price?minPrice=20&maxPrice=50" target="_blank">https://apiproduct-nveo.onrender.com/products/filter/price?minPrice=20&maxPrice=50</a></code></pre>
+            
+                <h3>7. Obtener productos ordenados por precio</h3>
+                <pre><code>GET /products/sort/price</code></pre>
+                <pre><code><a href="https://apiproduct-nveo.onrender.com/products/sort/price" target="_blank">https://apiproduct-nveo.onrender.com/products/sort/price</a></code></pre>
 
-        &lt;ol&gt;
-            &lt;li&gt;Primer paso&lt;/li&gt;
-            &lt;li&gt;Segundo paso&lt;/li&gt;
-            &lt;li&gt;Tercer paso&lt;/li&gt;
-        &lt;/ol&gt;
+                <div class="container text-center">
+                    <!-- Enlace directo a la aplicación Vue.js -->
+                        <a class=" text-success" href="https://vueproductos.vercel.app/about" target="_blank">Ver Tabla de Productos en la Aplicación Vue.js</a>
 
-        &lt;table border="1"&gt;
-            &lt;tr&gt;
-                &lt;th&gt;Encabezado 1&lt;/th&gt;
-                &lt;th&gt;Encabezado 2&lt;/th&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;Dato 1&lt;/td&gt;
-                &lt;td&gt;Dato 2&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/table&gt;
-    </code>
-</pre>
-
-<h2>6. Formularios</h2>
-<p>Los formularios permiten a los usuarios enviar datos al servidor. Aquí tienes un formulario simple:</p>
-
-<pre>
-    <code>
-        &lt;form action="/procesar" method="post"&gt;
-            &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
-            &lt;input type="text" id="nombre" name="nombre"&gt;
-            &lt;br&gt;
-            &lt;label for="email"&gt;Correo Electrónico:&lt;/label&gt;
-            &lt;input type="email" id="email" name="email"&gt;
-            &lt;br&gt;
-            &lt;input type="submit" value="Enviar"&gt;
-        &lt;/form&gt;
-    </code>
-</pre>
-
-<h2>7. Multimedia</h2>
-<p>HTML permite incrustar contenido multimedia como audio y video:</p>
-
-<pre>
-    <code>
-        &lt;audio controls&gt;
-            &lt;source src="audio.mp3" type="audio/mp3"&gt;
-            Tu navegador no soporta el elemento de audio.
-        &lt;/audio&gt;
-
-        &lt;video width="320" height="240" controls&gt;
-            &lt;source src="video.mp4" type="video/mp4"&gt;
-            Tu navegador no soporta el elemento de video.
-        &lt;/video&gt;
-    </code>
-</pre>
-
-<h2>8. Comentarios y Entidades HTML</h2>
-<p>Puedes agregar comentarios en tu código HTML y utilizar entidades HTML para caracteres especiales:</p>
-
-<pre>
-    <code>
-        &lt;!-- Esto es un comentario --&gt;
-
-        &lt;p&gt;Este es un ejemplo de &lt;strong&gt;texto fuerte&lt;/strong&gt;&lt;/p&gt;
-    </code>
-</pre>
-
-<h2>9. Etiquetas Semánticas</h2>
-<p>Las etiquetas semánticas como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, y <code>&lt;section&gt;</code> proporcionan significado al contenido:</p>
-
-<pre>
-    <code>
-        &lt;header&gt;
-            &lt;h1&gt;Mi Sitio Web&lt;/h1&gt;
-        &lt;/header&gt;
-
-        &lt;section&gt;
-            &lt;h2&gt;Sección Principal&lt;/h2&gt;
-            &lt;p&gt;Contenido de la sección principal.&lt;/p&gt;
-        &lt;/section&gt;
-
-        &lt;footer&gt;
-            &lt;p&gt;© 2024 Mi Sitio Web&lt;/p&gt;
-        &lt;/footer&gt;
-    </code>
-</pre>
-
-<h2>10. Enlaces Locales</h2>
-<p>Crea enlaces a otras páginas de tu propio sitio web:</p>
-
-<pre>
-    <code>
-        &lt;a href="/pagina.html"&gt;Ir a Otra Página&lt;/a&gt;
-    </code>
-</pre>
-
-<h2>11. Enlaces Internos </h2>
-<p>Crear enlaces internos para navegar dentro de la misma página:</p>
-<pre>
-
-    &lt;a href="#seccion1"&gt;Ir a la Sección 1&lt;/a&gt;
-</code>
-
-
-
-<section id="seccion1">
-    <h2>Sección 1</h2>
-    <p>Contenido de la sección.</p>
-</section>
-</pre>
-
-
-
-
+                </div>
+            
+            
             </div> <!-- fin de col -->
         </div> <!-- fin de row -->
     </div> <!-- fin de container -->
